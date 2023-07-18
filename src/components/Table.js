@@ -1,4 +1,26 @@
+import satData from "./satData";
+
+function Operational(props) {
+  const isOperational = props.isOperational;
+  if (isOperational.value === true) {
+    return <td>Active</td>
+  } else {
+  return <td>Inactive</td>
+   }
+}
+
+
 const Table = ({ sat }) => {
+  sat.map(id, data =>
+    <div key={data.id}>
+      <td>{data.name}</td>
+      <td>{data.type}</td>
+      <td>{data.lauchDate}</td>
+      <Operational />
+      
+    </div>
+    )
+    
   return (
       <table>
        <thead>
@@ -10,36 +32,12 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-          <div>
-        
-        const tableData = {sat.map((id, data) => {
-          return (
-        <tr key = {tableData.id}>
-          <td>{tableData.name}</td>
-          <td>{tableData.type}</td>
-          <td>{tableData.launchDate}</td>
-          <div>
-            function Status() {
-              <div>
-                {sat.map((props) => {
-                  return props.operational === true ? (
-                    <td key = {props.operational}>True
-                    </td>
-                  ) : False;
-      
-                  })}
-            }
-              </div>  
-              
-          
+        <tr>
+          <Table />
         </tr>
-          )
-        })}
-        </div>
         </tbody>
       </table>
   );
- 
 };
 
 export default Table;
