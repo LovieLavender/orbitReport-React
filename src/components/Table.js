@@ -1,5 +1,4 @@
 const Table = ({ sat }) => {
-  {sat.map((id, data) => {
   return (
       <table>
        <thead>
@@ -11,22 +10,36 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-        <tr data-key = {data.id}>
-          <td>{data.name}</td>
-          <td>{data.type}</td>
-          <td>{data.launchDate}</td>
-          <script>
-            if (isOperational === True) {
-          <td>True</td>
-            } else if {
-              <td>False</td>
+          <div>
+        
+        const tableData = {sat.map((id, data) => {
+          return (
+        <tr key = {tableData.id}>
+          <td>{tableData.name}</td>
+          <td>{tableData.type}</td>
+          <td>{tableData.launchDate}</td>
+          <div>
+            function Status() {
+              <div>
+                {sat.map((props) => {
+                  return props.operational === true ? (
+                    <td key = {props.operational}>True
+                    </td>
+                  ) : False;
+      
+                  })}
             }
-           </script> 
+              </div>  
+              
+          
         </tr>
+          )
+        })}
+        </div>
         </tbody>
       </table>
   );
- })}
+ 
 };
 
 export default Table;
