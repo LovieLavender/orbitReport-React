@@ -2,28 +2,18 @@
 import satData from "./satData";
 import "./styling.css"
 
-function Operational(props) {
-  const isOperational = props.isOperational;
-  if (isOperational.value === true) {
-    return <td>Active</td>
-  } else {
-  return <td>Inactive</td>
-   }
-}
+// function Operational(props) {
+//   const isOperational = props.isOperational;
+//   if (isOperational.value === true) {
+//     return <td>Active</td>
+//   } else {
+//   return <td>Inactive</td>
+//    }
+// }
 
 
-const Table = ({ sat }) => {
-  sat.map(id, data =>
-    <div key={data.id}>
-      <td>{data.name}</td>
-      <td>{data.type}</td>
-      <td>{data.lauchDate}</td>
-      <Operational />
-      console.log({sat})
-    </div>
-    )
-    
-  return (
+const Table = ({ data, index, sat }) => {
+    return (
       <table>
        <thead>
         <tr>
@@ -34,12 +24,16 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <Table />
-        </tr>
+      <tr key={sat.id}>
+        <td>{data[index].name}</td>
+        <td>{data[index].type}</td>
+        <td>{data[index].lauchDate}</td>
+        <td>{data[index].operational ? "Active" : "Inactive"}</td>
+     </tr>
         </tbody>
       </table>
   );
+  console.log({data})
 };
 
 export default Table;
