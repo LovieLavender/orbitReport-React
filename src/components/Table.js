@@ -1,4 +1,6 @@
+// import React from 'react';
 import satData from "./satData";
+import "./styling.css"
 
 function Operational(props) {
   const isOperational = props.isOperational;
@@ -17,7 +19,7 @@ const Table = ({ sat }) => {
       <td>{data.type}</td>
       <td>{data.lauchDate}</td>
       <Operational />
-      
+      console.log({sat})
     </div>
     )
     
