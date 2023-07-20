@@ -1,4 +1,4 @@
-// import React from 'react';
+
 import satData from "./satData";
 import "./styling.css"
 
@@ -12,7 +12,7 @@ import "./styling.css"
 // }
 
 
-const Table = ({ data, index, sat }) => {
+const Table = ({ sat }) => {
     return (
       <table>
        <thead>
@@ -24,16 +24,23 @@ const Table = ({ data, index, sat }) => {
         </tr>
         </thead>
         <tbody>
-      <tr key={sat.id}>
-        <td>{data[index].name}</td>
-        <td>{data[index].type}</td>
-        <td>{data[index].lauchDate}</td>
-        <td>{data[index].operational ? "Active" : "Inactive"}</td>
-     </tr>
+          { sat.map((data, id) => {
+            return (
+              <tr key={id}>
+              <td>{data.name}</td>
+              <td>{data.type}</td>
+              <td>{data.launchDate}</td>
+              <td>{data.operational ? "Active" : "Inactive"}</td>
+           </tr>
+            );
+          })
+
+          }
+     
         </tbody>
       </table>
   );
-  console.log({data})
+  
 };
 
 export default Table;
